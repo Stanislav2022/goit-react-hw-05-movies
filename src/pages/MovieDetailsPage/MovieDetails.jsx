@@ -15,8 +15,8 @@ export default function MovieDetails() {
         <div>
             <h3>Additional animation</h3>
             <ul>
-            <li><a href="">Cast</a></li>
-            <li><a href="">Revievs</a></li>
+            <li>Cast</li>
+            <li>Revievs</li>
             </ul>
         </div>
         <div>
