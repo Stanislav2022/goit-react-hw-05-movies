@@ -3,21 +3,17 @@ import axios from 'axios';
 const instance = axios.create({
   baseURL: 'https://api.themoviedb.org/3',
   params: {
-    key: '227276901e21542aa689a1c37fca7e3b',
+    api_key: '227276901e21542aa689a1c37fca7e3b',
   },
 });
 
 export const getTrending = async () => {
-  const { data } = await instance.get('', {
-    params: {
-      trending: '/trending/get-trending',
-    },
-  });
-  return data;
+  const { data } = await instance.get('/trending/movie/week');
+  return data.results;
 };
 
 export const getSearch = async () => {
-  const { data } = await instance.get('', {
+  const { data } = await instance.get('/', {
     params: {
       search: '/search/search-movies',
     },

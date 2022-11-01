@@ -3,7 +3,7 @@ import React from 'react'
 export default function MovieDetails() {
   return (
       <div>
-        <div>
+        {/* <div>
             <img src="" alt="" />
             <h1>Title</h1>
             <p>User score</p>
@@ -30,7 +30,7 @@ export default function MovieDetails() {
                 <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perferendis animi totam deleniti quam repellat quidem et corrupti voluptatum ut. Ab perspiciatis rerum temporibus commodi ipsa illo unde nisi consequuntur quo.</p>
             </li>
             </ul>
-        </div>
+        </div> */}
     </div>
   )
 }
