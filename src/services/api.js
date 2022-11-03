@@ -22,26 +22,16 @@ export const getSearch = async () => {
 };
 
 export const getMovieDetails = async id => {
-  const { data } = await instance.get(`/movies/${id}`);
+  const { data } = await instance.get(`/movie/${id}`);
   return data;
 };
 
 export const getMovieCredits = async id => {
-  const { data } = await instance.get('', {
-    params: {
-      id,
-      credits: '/movies/get-movie-credits',
-    },
-  });
+  const { data } = await instance.get(`/movie/${id}/credits`);
   return data;
 };
 
 export const getMovieReviews = async id => {
-  const { data } = await instance.get('', {
-    params: {
-      id,
-      reviews: '/movies/get-movie-reviews',
-    },
-  });
+  const { data } = await instance.get(`/movie/${id}/reviews`);
   return data;
 };

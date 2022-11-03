@@ -1,0 +1,6 @@
+.films__img {
+    object-fit: cover;
+    border-radius: 5px;
+     width: 200px;
+
+}
