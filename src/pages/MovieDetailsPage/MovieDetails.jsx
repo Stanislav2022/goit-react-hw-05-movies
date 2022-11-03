@@ -1,6 +1,33 @@
-import React from 'react'
+import React, { useState , useEffect} from 'react'
+import Loader from 'components/Loader/Loader';
+import {useParams } from 'react-router-dom';
+import { getMovieDetails } from 'services/api';
 
 export default function MovieDetails() {
+    const [state, setState] = useState(null);
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(null);
+
+    const { id } = useParams;
+    console.log(id);
+
+    useEffect(() => {
+        const fetchMovie = async () => {
+            try {
+                setLoading(false);
+                setError(null);
+                const result = await getMovieDetails(id);
+                setState(result);
+          } catch (error) {
+              setError(error);
+          } finally {
+              setLoading(false)
+          }
+      }
+        fetchMovie();
+    }, [id])
+    
+
   return (
       <div>
         <div>

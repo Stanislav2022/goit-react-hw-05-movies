@@ -1,17 +1,7 @@
 import { useState, useEffect  } from 'react';
 import { getTrending } from 'services/api';
-import { Audio } from 'react-loader-spinner';
 import { Link } from 'react-router-dom';
-
-<Audio
-  height="80"
-  width="80"
-  radius="9"
-  color="green"
-  ariaLabel="loading"
-  wrapperStyle
-  wrapperClass
-/>
+import Loader from 'components/Loader/Loader';
 
 const TrandingList = () => {
     const [tranding, setTrandingList] = useState({
@@ -36,11 +26,10 @@ const TrandingList = () => {
     }, [setTrandingList]);
 
     const { items, loading, error } = tranding;
-    console.log(items);
-    const element = items.map(({ id, title }) => (<li key={id}> <Link to={`/movies:${id}`}>{title}</Link></li>));
+    const element = items.map(({ id, title }) => (<li key={id}> <Link to={`/movies/:${id}`}>{title}{ id}</Link></li>));
   return (
       <div>
-          {loading && <Audio />}
+          {loading && <Loader />}
           {Boolean(items.length) && <ul>{element}</ul>}
           {error && <p>Films load fail</p>}
 
