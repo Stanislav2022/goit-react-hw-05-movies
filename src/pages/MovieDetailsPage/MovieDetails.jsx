@@ -1,6 +1,6 @@
 import React, { useState , useEffect} from 'react'
 import Loader from 'components/Loader/Loader';
-import {useParams } from 'react-router-dom';
+import {useParams, useNavigate, NavLink } from 'react-router-dom';
 import { getMovieDetails, getMovieCredits } from 'services/api';
 import css from "./MovieDetails.module.css";
 
@@ -11,6 +11,8 @@ export default function MovieDetails() {
     const [error, setError] = useState(null);
 
     const { id } = useParams();
+    const navigate = useNavigate();
+
     
     useEffect(() => {
         const fetchMovie = async () => {
@@ -60,10 +62,13 @@ export default function MovieDetails() {
     return (ratind*10).toFixed(0);
   }
   return `0`;
-}
+    }
+    
+    const goBack = () => { navigate( -1) }; 
 
 return (
     <div>
+        <button on onClick={goBack}>Go back</button>
         {loading && <Loader />}
         {error && <p>Error</p>}
         {state && (
@@ -80,23 +85,14 @@ return (
                     </div>
             </div>
             <div>
-                <h3>Additional animation</h3>
+                <h3>Additional information</h3>
                 <ul>
-                <li>Cast</li>
-                <li>Revievs</li>
+                <li><NavLink to={'cast'}>Cast</NavLink></li>
+                <li><NavLink to={'revievs'}>Revievs</NavLink></li>
                 </ul>
             </div>
             <div>
-                <ul>
-                <li>
-                    <h3>Author:</h3>
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perferendis animi totam deleniti quam repellat quidem et corrupti voluptatum ut. Ab perspiciatis rerum temporibus commodi ipsa illo unde nisi consequuntur quo.</p>
-                </li>
-                <li>
-                    <h3>Author:</h3>
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Perferendis animi totam deleniti quam repellat quidem et corrupti voluptatum ut. Ab perspiciatis rerum temporibus commodi ipsa illo unde nisi consequuntur quo.</p>
-                </li>
-                </ul>
+               
             </div>
         </>)}
 </div>
