@@ -1,6 +1,6 @@
 import React, { useState , useEffect} from 'react'
 import Loader from 'components/Loader/Loader';
-import {useParams, useNavigate, NavLink } from 'react-router-dom';
+import {useParams, useNavigate, NavLink, Outlet } from 'react-router-dom';
 import { getMovieDetails, getMovieCredits } from 'services/api';
 import css from "./MovieDetails.module.css";
 
@@ -92,7 +92,7 @@ return (
                 </ul>
             </div>
             <div>
-               
+               <Outlet/>
             </div>
         </>)}
 </div>
