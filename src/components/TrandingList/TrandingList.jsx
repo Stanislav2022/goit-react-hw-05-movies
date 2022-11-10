@@ -26,8 +26,7 @@ const TrandingList = () => {
     }, [setTrandingList]);
 
     const { items, loading, error } = tranding;
-    console.log(items);
-    const element = items.map(({ id, title }) => (<li key={id}> <Link to={`/movies/${id}`}>{title}{id}</Link></li>));
+    const element = items.map(({ id, title }) => (<li key={id}> <Link to={`/movies/${id}`}>{title}</Link></li>));
   return (
       <div>
           {loading && <Loader />}

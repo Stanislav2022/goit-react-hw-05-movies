@@ -1,12 +1,11 @@
 import React, { useState , useEffect} from 'react'
 import Loader from 'components/Loader/Loader';
 import {useParams, useNavigate, NavLink, Outlet } from 'react-router-dom';
-import { getMovieDetails, getMovieCredits } from 'services/api';
+import { getMovieDetails } from 'services/api';
 import css from "./MovieDetails.module.css";
 
 export default function MovieDetails() {
     const [state, setState] = useState(null);
-    const [credits, setCredits] = useState(null);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
 
@@ -20,10 +19,7 @@ export default function MovieDetails() {
                 setLoading(true);
                 setError(null);
                 const result = await getMovieDetails(id);
-                const credits = await getMovieCredits(id);
-                console.log(credits);
                 setState(result);
-                setCredits(credits)
           } catch (error) {
               setError(error);
           } finally {
@@ -42,7 +38,7 @@ export default function MovieDetails() {
     const createGenresFilmArray = (genresArray) => {
         if (genresArray.length !== 0) {
             let genresFilm = [];
-            const genresName = genresArray.reduce((acc, item) => {
+            genresArray.reduce((acc, item) => {
                 genresFilm.push( ` ${item.name}`);
                 }, 0);
             return genresFilm;
@@ -64,7 +60,7 @@ export default function MovieDetails() {
   return `0`;
     }
     
-    const goBack = () => { navigate( -1) }; 
+    const goBack = () => { navigate("/") }; 
 
 return (
     <div>
@@ -88,7 +84,7 @@ return (
                 <h3>Additional information</h3>
                 <ul>
                 <li><NavLink to={'cast'}>Cast</NavLink></li>
-                <li><NavLink to={'revievs'}>Revievs</NavLink></li>
+                <li><NavLink to={'reviews'}>Reviews</NavLink></li>
                 </ul>
             </div>
             <div>
