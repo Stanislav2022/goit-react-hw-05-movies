@@ -3,8 +3,8 @@ import Home from './pages/HomePage/Home'
 import Movies from './pages/MoviesPage/Movies'
 import Navbar from "components/Navbar/Navbar";
 import MovieDetails from "./pages/MovieDetailsPage/MovieDetails"
-import Cast from "pages/MoviesPage/Cast/Cast";
-import Reviews from "pages/MoviesPage/Reviews/Reviews";
+import Cast from "pages/MovieDetailsPage/Cast/Cast";
+import Reviews from "pages/MovieDetailsPage/Reviews/Reviews";
 
 export const App = () => {
   return (
