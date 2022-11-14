@@ -38,9 +38,9 @@ export default function MovieDetails() {
     const createGenresFilmArray = (genresArray) => {
         if (genresArray.length !== 0) {
             let genresFilm = [];
-            genresArray.reduce((acc, item) => {
-                genresFilm.push( ` ${item.name}`);
-                }, 0);
+            genresArray.reduce((acc, item) => 
+                genresFilm.push( ` ${item.name}`)
+            , 0);
             return genresFilm;
         }
         return `No genre`;
