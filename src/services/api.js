@@ -12,13 +12,15 @@ export const getTrending = async () => {
   return data.results;
 };
 
-export const getSearch = async () => {
-  const { data } = await instance.get('/', {
+export const getSearch = async search => {
+  const { data } = await instance.get(`/search/movie`, {
     params: {
-      search: '/search/search-movies',
+      query: search,
+      page: 1,
     },
   });
-  return data;
+
+  return data.results;
 };
 
 export const getMovieDetails = async id => {

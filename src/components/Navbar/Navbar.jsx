@@ -1,14 +1,17 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
+import style from "./Navbar.module.css"
 
-
+const getClassName = ({ isActive }) => {
+  return isActive ? `${style.link} ${style.link__active}` : `${style.link}`;
+}
 
 export default function Navbar() {
     return (
-      <nav>
-        <ul>
-          <li><Link to='/'>Home</Link></li>
-          <li><Link to='/movies'>Movies</Link></li>
+      <nav >
+        <ul className={style.menu}>
+          <li><NavLink className={getClassName} to='/' end>Home</NavLink></li>
+          <li><NavLink className={getClassName} to='/movies' end>Movies</NavLink></li>
         </ul>    
       </nav>
 

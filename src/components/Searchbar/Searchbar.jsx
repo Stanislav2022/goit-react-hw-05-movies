@@ -1,7 +1,5 @@
 import React, { useState } from "react"
 import style from "./Searchbar.module.css"
-import { FaSearch } from 'react-icons/fa';
-import { IconContext } from "react-icons";
 import PropTypes from 'prop-types';
 
 export default function Searchbar({onSubmit}) {
@@ -20,7 +18,7 @@ export default function Searchbar({onSubmit}) {
     const searchField = {
     type: "text",
     name: "search",
-    placeholder: "Search images and photos",
+    placeholder: "Search film",
     required: true,
     autoComplete:"off",
   }
@@ -28,23 +26,21 @@ export default function Searchbar({onSubmit}) {
   return (
     <header className={style.searchbar}>
       <form className={style.searchform} onSubmit={handleSubmit}>
-          <button
-            type="submit"
-            className={style.button}
-            onClick={handleSubmit}>
-            <IconContext.Provider value={{ style: { verticalAlign: 'middle' } }}>
-                <div>
-                    <FaSearch />
-                </div>
-            </IconContext.Provider>
-          </button>
-
-          <input
+                 <input
             className={style.input}
             value={search}
             autoFocus
             onChange={handleChange}
-            {...searchField} />
+            {...searchField} />   
+        
+        
+        <button
+            type="submit"
+            className={style.button}
+            onClick={handleSubmit}>Search
+          </button>
+
+
       </form>
     </header>
   )

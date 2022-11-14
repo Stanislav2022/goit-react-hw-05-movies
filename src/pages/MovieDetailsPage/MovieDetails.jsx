@@ -2,7 +2,7 @@ import React, { useState , useEffect} from 'react'
 import Loader from 'components/Loader/Loader';
 import {useParams, useNavigate, NavLink, Outlet } from 'react-router-dom';
 import { getMovieDetails } from 'services/api';
-import css from "./MovieDetails.module.css";
+import style from "./MovieDetails.module.css";
 
 export default function MovieDetails() {
     const [state, setState] = useState(null);
@@ -69,8 +69,8 @@ return (
         {error && <p>Error</p>}
         {state && (
             <>
-            <div className={css.section} >
-                    <img className={css.films__img} loading="lazy" src={createPosterFilm(state.poster_path)} alt={state.title} />
+            <div className={style.section} >
+                    <img className={style.films__img} loading="lazy" src={createPosterFilm(state.poster_path)} alt={state.title} />
                     <div>
                                         <h1>{state.title} ({createYearFilm(String(state.release_date).slice(0, 4))})</h1>
                 <p>User Score {createRating(state.vote_average)}%</p>
