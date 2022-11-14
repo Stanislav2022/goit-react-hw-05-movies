@@ -5,17 +5,17 @@ import PropTypes from 'prop-types';
 export default function Searchbar({onSubmit}) {
   const [search, setSearch] = useState("");
 
-    const handleChange = (e) => {
-      const { value } = e.target;
-      setSearch(value);
-   }
+  const handleChange = (e) => {
+    const { value } = e.target;
+    setSearch(value);
+  }
 
-    const handleSubmit = (e) => {
-      e.preventDefault();
-      onSubmit(search);
-   }
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    onSubmit(search);
+  }
 
-    const searchField = {
+  const searchField = {
     type: "text",
     name: "search",
     placeholder: "Search film",
@@ -26,21 +26,17 @@ export default function Searchbar({onSubmit}) {
   return (
     <header className={style.searchbar}>
       <form className={style.searchform} onSubmit={handleSubmit}>
-                 <input
-            className={style.input}
-            value={search}
-            autoFocus
-            onChange={handleChange}
-            {...searchField} />   
-        
-        
+        <input
+          className={style.input}
+          value={search}
+          autoFocus
+          onChange={handleChange}
+          {...searchField} />   
         <button
-            type="submit"
-            className={style.button}
-            onClick={handleSubmit}>Search
-          </button>
-
-
+          type="submit"
+          className={style.button}
+          onClick={handleSubmit}>Search
+        </button>
       </form>
     </header>
   )

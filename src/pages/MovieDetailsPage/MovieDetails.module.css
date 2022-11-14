@@ -1,9 +1,16 @@
 .section{
     display: flex;
+    box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
+        0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
 }
+.section__border {
+    padding-bottom: 20px;
+    box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
+        0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+}
+
 .films__img {
     object-fit: cover;
     border-radius: 5px;
-     width: 200px;
-
+    width: 200px;
 }
